@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+export JAVA_OPTIONS=""
+if [[ "$DD_AGENT_HOST" != "" ]]; then
+  JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:/usr/local/dd-java-agent.jar"
+  export DD_AGENT_HOST
+fi
+
+# note that the -XX:+UseCGroupMemoryLimitForHeap is deprecated in Java 11
+exec java -XX:+UnlockExperimentalVMOptions \
+          -Dlogback.configurationFile=logback.xml \
+          $JAVA_OPTIONS \
+          -jar /user/local/akka-http-basics/akka-http-basics.jar
