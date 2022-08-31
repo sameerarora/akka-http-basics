@@ -9,8 +9,6 @@ ThisBuild / organization := "com.ecomexpress"
 ThisBuild / organizationName := "EcomExpress"
 ThisBuild / useCoursier := false
 
-credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
-
 resolvers ++= Seq(
   Resolver.mavenLocal,
   "Typesafe repository" at "https://repo.typesafe.com/typesafe/releases/"
